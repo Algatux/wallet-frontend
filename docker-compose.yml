@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    volumes:
+        - ./:/home/node-user/project
+    tty: true
+    ports:
+      - 3000:3000
+    container_name: dev_node
+
+
