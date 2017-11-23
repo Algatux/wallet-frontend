@@ -26,17 +26,17 @@ class NavBar extends Component {
 
         return (
 
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography type="title" color="inherit" className={classes.flex}>
-                            Wallet
-                        </Typography>
-                        <Button color="contrast">Login</Button>
-                    </Toolbar>
-                </AppBar>
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
+                        <MenuIcon />
+                    </IconButton>
+                    <Typography type="title" color="inherit" className={classes.flex}>
+                        Wallet
+                    </Typography>
+                    <Button color="contrast">Login</Button>
+                </Toolbar>
+            </AppBar>
 
         );
     }
