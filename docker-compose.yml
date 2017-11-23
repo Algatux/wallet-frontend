@@ -5,11 +5,11 @@ services:
     build:
       context: .
       dockerfile: docker/Dockerfile
+    working_dir: /home/node/project
     volumes:
-        - ./:/home/node-user/project
+        - ./:/home/node/project
     tty: true
     ports:
       - 3000:3000
+      - 5000:5000
     container_name: dev_node
-
-
