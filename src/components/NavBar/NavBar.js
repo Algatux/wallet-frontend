@@ -25,19 +25,17 @@ class NavBar extends Component {
         const { classes } = this.props;
 
         return (
-
             <AppBar position="static">
                 <Toolbar>
                     <IconButton className={classes.menuButton} color="contrast" aria-label="Menu">
                         <MenuIcon />
                     </IconButton>
                     <Typography type="title" color="inherit" className={classes.flex}>
-                        Wallet
+                        <span>Wallet</span>
                     </Typography>
                     <Button color="contrast">Login</Button>
                 </Toolbar>
             </AppBar>
-
         );
     }
 }
