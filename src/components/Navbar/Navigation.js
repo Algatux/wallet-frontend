@@ -3,14 +3,15 @@ import React from 'react'
 import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 import { LinkContainer } from 'react-router-bootstrap'
-import { Link } from 'react-router-dom'
 
 export default class Navigation extends React.Component {
 
-    buildLink(link, key, title) {
+    buildLink(link, key, title, fa) {
+
+
         return (
-            <LinkContainer to={link}>
-                <NavItem eventKey={key} >{title}</NavItem>
+            <LinkContainer exact to={link}>
+                <NavItem eventKey={key} >{fa && <i className={fa} /> } {title}</NavItem>
             </LinkContainer>
         )
     }
@@ -21,14 +22,13 @@ export default class Navigation extends React.Component {
         return (
             <Navbar collapseOnSelect fluid staticTop>
                 <Navbar.Header>
-                    <Navbar.Brand>
-                        <Link to="/">Vault</Link>
-                    </Navbar.Brand>
+                    <Navbar.Brand>Vault</Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        { this.buildLink('/wallets', 1, 'Wallets') }
+                        { this.buildLink('/', 1, 'Home') }
+                        { this.buildLink('/wallets', 2, 'Wallets') }
                     </Nav>
                     <Nav pullRight>
                         { this.buildLink('/login', 3, 'Login') }
