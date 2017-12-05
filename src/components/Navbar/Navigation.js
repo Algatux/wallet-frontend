@@ -1,33 +1,37 @@
 
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
+
+import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default class Navigation extends React.Component {
+
+    buildLink(link, key, title) {
+        return (
+            <LinkContainer to={link}>
+                <NavItem eventKey={key} >{title}</NavItem>
+            </LinkContainer>
+        )
+    }
+
 
     render() {
 
         return (
-            <Navbar collapseOnSelect fluid>
+            <Navbar collapseOnSelect fluid staticTop>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#">Vault</a>
+                        <Link to="/">Vault</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavItem eventKey={1} href="#">Wallets</NavItem>
-                        {/*<NavItem eventKey={2} href="#">Link</NavItem>*/}
-                        {/*<NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">*/}
-                            {/*<MenuItem eventKey={3.1}>Action</MenuItem>*/}
-                            {/*<MenuItem eventKey={3.2}>Another action</MenuItem>*/}
-                            {/*<MenuItem eventKey={3.3}>Something else here</MenuItem>*/}
-                            {/*<MenuItem divider />*/}
-                            {/*<MenuItem eventKey={3.3}>Separated link</MenuItem>*/}
-                        {/*</NavDropdown>*/}
+                        { this.buildLink('/wallets', 1, 'Wallets') }
                     </Nav>
                     <Nav pullRight>
-                        <NavItem eventKey={1} href="#">Login</NavItem>
+                        { this.buildLink('/login', 3, 'Login') }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

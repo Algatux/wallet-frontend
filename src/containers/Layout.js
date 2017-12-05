@@ -1,13 +1,35 @@
-import React from 'react';
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import Navigation from '../components/Navbar/Navigation';
+import { Grid, Row, Col } from 'react-bootstrap'
+
+import Home from './Home'
+import Login from './Login'
+import Wallets from './Wallets'
+
+import Navigation from '../components/Navbar/Navigation'
 
 export default class Layout extends React.Component {
 
   render() {
 
     return (
-        <Navigation />
+        <Router>
+            <div>
+                <Navigation />
+
+                <Grid fluid>
+                    <Row className="show-grid">
+                        <Col md={12}>
+                            <Route exact path="/" component={Home}/>
+                            <Route path="/wallets" component={Wallets}/>
+                            <Route path="/login" component={Login}/>
+                        </Col>
+                    </Row>
+                </Grid>
+
+            </div>
+        </Router>
     );
   }
 
