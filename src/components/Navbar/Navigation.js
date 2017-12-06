@@ -14,10 +14,8 @@ export default class Navigation extends React.Component {
         )
     }
 
-    buildUserMenu() {
-        const  { auth } = this.props;
-
-        if (!this.props.auth.authenticated) {
+    buildUserMenu(auth) {
+        if (!auth.authenticated) {
 
             return <NavItem
                 eventKey={4}
@@ -36,6 +34,8 @@ export default class Navigation extends React.Component {
 
     render() {
 
+        const  { auth } = this.props;
+
         return (
             <Navbar collapseOnSelect fluid staticTop>
                 <Navbar.Header>
@@ -43,12 +43,12 @@ export default class Navigation extends React.Component {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav>
+                    { auth.authenticated && <Nav>
                         { this.buildLink('/', 1, 'Home') }
                         { this.buildLink('/wallets', 2, 'Wallets') }
-                    </Nav>
+                    </Nav> }
                     <Nav pullRight>
-                        { this.buildUserMenu() }
+                        { this.buildUserMenu(auth) }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
