@@ -19,9 +19,7 @@ const reducers = combineReducers({
 const initialStore = {
     authentication: {
         authenticated: false,
-        user: {
-            name: 'alga'
-        }
+        user: null
     },
     wallets : []
 };

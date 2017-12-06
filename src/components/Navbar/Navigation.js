@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Button } from 'react-bootstrap'
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
 import { LinkContainer } from 'react-router-bootstrap'
 
@@ -18,18 +18,17 @@ export default class Navigation extends React.Component {
         const  { auth } = this.props;
 
         if (!this.props.auth.authenticated) {
-            const login = () => {
-                console.log('doing login');
-                this.props.dispatch({type: 'DO_LOGIN', payload: {user: { name : 'alga'}}})
-            }
 
-            return <Button onClick={login}>Login</Button>
+            return <NavItem
+                eventKey={4}
+                onClick={() => { this.props.dispatch({type:'DO_LOGIN', payload : {user: {name:'alga'}}}) } }
+                >Login</NavItem>
         }
 
         return (
             <NavDropdown eventKey={4} title={auth.user.name} id="basic-nav-dropdown">
                 <MenuItem divider />
-                <MenuItem eventKey={4.1} >Logout</MenuItem>
+                <MenuItem eventKey={4.1} onClick={() => { this.props.dispatch({type: 'DO_LOGOUT'}) }}>Logout</MenuItem>
             </NavDropdown>
         )
     }
