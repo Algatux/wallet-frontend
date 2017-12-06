@@ -19,7 +19,7 @@ export default class Layout extends React.Component {
                 <Navigation />
 
                 <Grid fluid>
-                    <Row className="show-grid">
+                    <Row>
                         <Col md={12}>
                             <Route exact path="/" component={Home}/>
                             <Route path="/wallets" component={Wallets}/>
