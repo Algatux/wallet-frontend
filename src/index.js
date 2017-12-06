@@ -1,23 +1,32 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
+import authentication  from './reducers/authentication'
+import wallets from './reducers/wallets'
 
 import Layout from './containers/Layout'
 
 import registerServiceWorker from './registerServiceWorker'
 
-const reducer = (store) => {
-    console.log('reducing store', store);
-    return Object.assign({}, store);
+const logger = createLogger();
+const reducers = combineReducers({
+    authentication,
+    wallets
+});
+
+const initialStore = {
+    authentication: {
+        authenticated: false,
+        user: {
+            name: 'alga'
+        }
+    },
+    wallets : []
 };
 
-const store = createStore(reducer, {}, applyMiddleware(createLogger()));
-
-store.dispatch({
-    type: 'TEST'
-});
+const store = createStore(reducers, initialStore, applyMiddleware(logger));
 
 ReactDOM.render(<Provider store={store}><Layout /></Provider>, document.getElementById('root'));
 

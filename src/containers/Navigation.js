@@ -1,6 +1,5 @@
 import {connect} from "react-redux"
-
-import Home from '../components/Pages/Home'
+import Navigation from "../components/Navbar/Navigation"
 
 const mapStateToProps = (state) => {
     return {
@@ -8,4 +7,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(Navigation);

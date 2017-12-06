@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Grid, Row, Col } from 'react-bootstrap'
 
-import Home from './Home'
-import Login from './Login'
-import Wallets from './Wallets'
+import HomeContainer from '../containers/Home'
+import Login from '../components/Pages/Login'
+import Wallets from '../components/Pages/Wallets'
 
-import Navigation from '../components/Navbar/Navigation'
+import Navigation from '../containers/Navigation'
 
 export default class Layout extends React.Component {
 
@@ -21,7 +21,7 @@ export default class Layout extends React.Component {
                 <Grid fluid>
                     <Row>
                         <Col md={12}>
-                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/" component={HomeContainer}/>
                             <Route path="/wallets" component={Wallets}/>
                             <Route path="/login" component={Login}/>
                         </Col>
