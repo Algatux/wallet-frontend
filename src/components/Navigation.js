@@ -18,7 +18,7 @@ export default class Navigation extends Component {
 
             return <NavItem
                 eventKey={4}
-                onClick={() => { this.props.login() } }
+                onClick={() => { this.props.requestToken() } }
                 >Login</NavItem>
         }
 
@@ -45,7 +45,7 @@ export default class Navigation extends Component {
 
     render() {
 
-        const  { auth } = this.props;
+        const  { auth, dispatch } = this.props;
 
         return (
             <Navbar collapseOnSelect fluid staticTop>
@@ -56,7 +56,7 @@ export default class Navigation extends Component {
                 <Navbar.Collapse>
                     { this.buildNavigationMenu(auth) }
                     <Nav pullRight>
-                        { this.buildUserMenu(auth) }
+                        { this.buildUserMenu(auth, dispatch) }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

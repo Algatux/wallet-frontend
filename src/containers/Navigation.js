@@ -1,6 +1,6 @@
 import {connect} from "react-redux"
 import Navigation from "../components/Navigation"
-import {doLogin, doLogout} from '../actions/authentication'
+import {doLogout, requestToken } from '../actions/authentication'
 
 const mapStateToProps = (state) => {
     return {
@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login : () => dispatch(doLogin()),
-        logout: () => dispatch(doLogout())
+        logout: () => dispatch(doLogout()),
+        requestToken: () => dispatch(requestToken())
     }
 }
 
