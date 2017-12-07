@@ -1,5 +1,6 @@
 import {connect} from "react-redux"
-import Navigation from "../components/Navbar/Navigation"
+import Navigation from "../components/Navigation"
+import {doLogin, doLogout} from '../actions/authentication'
 
 const mapStateToProps = (state) => {
     return {
@@ -7,4 +8,11 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Navigation);
+const mapDispatchToProps = dispatch => {
+    return {
+        login : () => dispatch(doLogin()),
+        logout: () => dispatch(doLogout())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
-import authentication  from './reducers/authentication'
-import wallets from './reducers/wallets'
+import authenticationReducer  from './reducers/authentication'
+import walletsReducer from './reducers/wallets'
 
 import Layout from './containers/Layout'
 
@@ -12,8 +12,8 @@ import registerServiceWorker from './registerServiceWorker'
 
 const logger = createLogger();
 const reducers = combineReducers({
-    authentication,
-    wallets
+    authentication: authenticationReducer,
+    wallets: walletsReducer
 });
 
 const initialStore = {

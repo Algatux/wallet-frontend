@@ -1,10 +1,9 @@
-
-import React from 'react'
+import React, {Component} from 'react'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
 
 import { LinkContainer } from 'react-router-bootstrap'
 
-export default class Navigation extends React.Component {
+export default class Navigation extends Component {
 
     buildLink(link, key, title, fa) {
         return (
@@ -19,18 +18,30 @@ export default class Navigation extends React.Component {
 
             return <NavItem
                 eventKey={4}
-                onClick={() => { this.props.dispatch({type:'DO_LOGIN', payload : {user: {name:'alga'}}}) } }
+                onClick={() => { this.props.login() } }
                 >Login</NavItem>
         }
 
         return (
             <NavDropdown eventKey={4} title={auth.user.name} id="basic-nav-dropdown">
                 <MenuItem divider />
-                <MenuItem eventKey={4.1} onClick={() => { this.props.dispatch({type: 'DO_LOGOUT'}) }}>Logout</MenuItem>
+                <MenuItem eventKey={4.1} onClick={() => { this.props.logout() }}>Logout</MenuItem>
             </NavDropdown>
         )
     }
 
+    buildNavigationMenu(auth) {
+        if (!auth.authenticated) {
+            return null
+        }
+
+        return (
+            <Nav>
+                { this.buildLink('/', 1, 'Home') }
+                { this.buildLink('/wallets', 2, 'Wallets') }
+            </Nav>
+        )
+    }
 
     render() {
 
@@ -43,10 +54,7 @@ export default class Navigation extends React.Component {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    { auth.authenticated && <Nav>
-                        { this.buildLink('/', 1, 'Home') }
-                        { this.buildLink('/wallets', 2, 'Wallets') }
-                    </Nav> }
+                    { this.buildNavigationMenu(auth) }
                     <Nav pullRight>
                         { this.buildUserMenu(auth) }
                     </Nav>
