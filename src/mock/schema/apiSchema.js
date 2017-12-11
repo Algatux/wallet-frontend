@@ -29,23 +29,37 @@ let schema = {
                 "required": ["id", "type", "lastname", "email"]
             }
         },
-        "user": {
+        "requestToken": {
             "type": "object",
             "properties": {
-                "id": {
-                    "type": "number",
-                    "unique": true,
-                    "minimum": 1
-                },
-                "name": {
+                "token": {
                     "type": "string",
-                    "faker": "name.firstName"
+                    "faker": "random.uuid"
+                },
+                "refresh": {
+                    "type": "string",
+                    "faker": "random.uuid"
+                },
+                "user": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number",
+                            "unique": true,
+                            "minimum": 1
+                        },
+                        "name": {
+                            "type": "string",
+                            "faker": "name.firstName"
+                        }
+                    },
+                    "required": ["id", "name"]
                 }
             },
-            "required": ["id", "name"]
+            "required": ["token", "refresh", "user"]
         }
     },
-    "required": ["users", "user"]
+    "required": ["login","users"]
 };
 
 
