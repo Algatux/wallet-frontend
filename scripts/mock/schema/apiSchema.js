@@ -62,5 +62,4 @@ let schema = {
     "required": ["login","users"]
 };
 
-
 module.exports = schema;

@@ -1,14 +1,18 @@
+import {API_ENDPOINT} from '../common/envVars';
+
 export const doLogout = () => {
     return { type: 'DO_LOGOUT' }
 }
 
 export function requestToken() {
 
+    console.log(API_ENDPOINT);
+
     return dispatch => {
 
         return dispatch({
             type: 'DO_LOGIN',
-            payload: fetch(`http://localhost:3001/requestToken`)
+            payload: fetch(API_ENDPOINT + `/requestToken`)
                 .then(response => {
                     console.log(response)
                     if (response.status !== 200) {

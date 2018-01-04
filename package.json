@@ -23,13 +23,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "api:mock": "node scripts/mock-api-data && json-server --watch src/mock/schema/db.json --port 3001"
+    "api:mock": "node scripts/mock-api-data && json-server --watch scripts/mock/schema/db.json --port 3001"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
-    "enzyme-adapter-react-16": "^1.1.0",
-    "jest-enzyme": "^4.0.1",
-    "json-schema-faker": "^0.4.6",
     "json-server": "^0.12.1",
     "react-test-renderer": "^16.1.1",
     "serve": "^6.4.1"
