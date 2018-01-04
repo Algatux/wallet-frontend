@@ -27,6 +27,9 @@
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
+    "jest-enzyme": "^4.0.1",
+    "json-schema-faker": "^0.4.6",
     "json-server": "^0.12.1",
     "react-test-renderer": "^16.1.1",
     "serve": "^6.4.1"

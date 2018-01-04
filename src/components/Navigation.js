@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap'
-
 import { LinkContainer } from 'react-router-bootstrap'
 
 export default class Navigation extends Component {
@@ -16,10 +15,7 @@ export default class Navigation extends Component {
     buildUserMenu(auth) {
         if (!auth.authenticated) {
 
-            return <NavItem
-                eventKey={4}
-                onClick={() => { this.props.requestToken() } }
-                >Login</NavItem>
+            return this.buildLink('/login', 3, 'Login');
         }
 
         return (
