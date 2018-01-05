@@ -5,10 +5,10 @@ import { Col, ControlLabel, Checkbox, FormControl, Button, Form, FormGroup } fro
 export default class LoginForm extends React.Component {
 
     render() {
-        const { handleChange } = this.props
+        const { handleChange, handleSubmit } = this.props
 
         return(
-            <Form horizontal>
+            <Form onSubmit={handleSubmit}>
                 <FormGroup controlId="formHorizontalEmail">
                     <Col componentClass={ControlLabel} sm={2}>
                         Username
@@ -23,19 +23,19 @@ export default class LoginForm extends React.Component {
                         Password
                     </Col>
                     <Col sm={10}>
-                        <FormControl type="password" placeholder="Password" name="password"/>
+                        <FormControl type="password" placeholder="Password" onChange={handleChange} name="password"/>
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Checkbox>Remember me</Checkbox>
+                        <Checkbox onChange={handleChange} name="remember">Remember me</Checkbox>
                     </Col>
                 </FormGroup>
 
                 <FormGroup>
                     <Col smOffset={2} sm={10}>
-                        <Button type="submit">
+                        <Button type="submit" onClick={handleSubmit}>
                             Sign in
                         </Button>
                     </Col>

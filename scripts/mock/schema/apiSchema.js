@@ -35,31 +35,12 @@ let schema = {
                 "token": {
                     "type": "string",
                     "faker": "random.uuid"
-                },
-                "refresh": {
-                    "type": "string",
-                    "faker": "random.uuid"
-                },
-                "user": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "number",
-                            "unique": true,
-                            "minimum": 1
-                        },
-                        "name": {
-                            "type": "string",
-                            "faker": "name.firstName"
-                        }
-                    },
-                    "required": ["id", "name"]
                 }
             },
-            "required": ["token", "refresh", "user"]
+            "required": ["token"]
         }
     },
-    "required": ["login","users"]
+    "required": ["requestToken","users"]
 };
 
 module.exports = schema;

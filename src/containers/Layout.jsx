@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import { Grid, Row, Col } from 'react-bootstrap'
 
-import HomeContainer from '../containers/Home'
-import Login from '../components/Pages/Login'
-import Wallets from '../components/Pages/Wallets'
-
 import Navigation from '../containers/Navigation'
+import HomeContainer from '../containers/Home'
+import Login from '../containers/Login'
+import Wallets from '../components/Pages/Wallets'
 
 export default class Layout extends React.Component {
 
